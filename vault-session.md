@@ -84,3 +84,53 @@ vault write auth/userpass/users/sally \
     policies=lob_a
 ```
 * This means that Bob can read, list and create data under the secret/* path because his policy allows him to do so. Vault comes with a key/value engine mounted at secret/ by default. When Sally logs on she can't even see the secret/ path because she does not have list permissions
+
+### Chapter 7
+* This covers dynamic secrets
+* We first run the following script
+```bash
+vault secrets enable -path=lob_a/workshop/database database
+vault write lob_a/workshop/database/config/wsmysqldatabase \
+    plugin_name=mysql-database-plugin \
+    connection_url="{{username}}:{{password}}@tcp(${MYSQL_HOST}.mysql.database.azure.com:3306)/" \
+    allowed_roles="workshop-app","workshop-app-long" \
+    username="hashicorp@${MYSQL_HOST}" \
+    password="Password123!"
+vault write lob_a/workshop/database/roles/workshop-app-long \
+    db_name=wsmysqldatabase \
+    creation_statements="CREATE USER 'Database-Engine-3'@'%' IDENTIFIED BY '{{password}}';GRANT ALL ON my_app.* TO 'Database-Engine-3'@'%';" \
+    default_ttl="1h" \
+    max_ttl="24h"
+vault write lob_a/workshop/database/roles/workshop-app \
+    db_name=wsmysqldatabase \
+    creation_statements="CREATE USER 'Database-Engine-3'@'%' IDENTIFIED BY '{{password}}';GRANT ALL ON my_app.* TO 'Database-Engine-3'@'%';" \
+    default_ttl="5m" \
+    max_ttl="1h"
+```
+* Next, as an authenticated user, I can run the following command to get creds:
+```bash
+vault read lob_a/workshop/database/creds/workshop-app
+```
+This outputs the following:
+```bash
+Key                Value
+---                -----
+lease_id           lob_a/workshop/database/creds/workshop-app/95g5sJoyJpa8zbsZduj7ocSk
+lease_duration     5m
+lease_renewable    true
+password           A1a-fIjjcw0hcXwOPdQT
+username           v-token-workshop-a-MFVO0aWd8pp4j
+```
+* Using the newly created credentials to log onto the MySQL database. (the script gets new credentials from Vault, logs me onto the database server, then run a show databases; command and exit):
+```bash
+./mysql_login.sh
+```
+This outputs the following:
+```bash
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
++--------------------+
+```
+
