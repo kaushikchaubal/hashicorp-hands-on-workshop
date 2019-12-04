@@ -3,13 +3,13 @@
 ### Hands-on session
 * Slides: https://hashicorp.github.io/workshops/azure/vault/#1
 * High-level architecture for vault looks like this:
-![vault-high-level-architecture](vault-high-level-architecture.png)
+![vault-high-level-architecture](images/vault-high-level-architecture.png)
 (More details here: https://www.hashicorp.com/identity-based-security-and-low-trust-networks)
 * Vault internals look like this:
-![vault-internals](vault-internals.png)
+![vault-internals](images/vault-internals.png)
 (More details here: https://www.vaultproject.io/docs/internals/architecture.html)
 * Vault high availability setup looks like this:
-![vault-high-availability](vault-high-availability.png)
+![vault-high-availability](images/vault-high-availability.png)
 (More details here: https://learn.hashicorp.com/vault/operations/ops-reference-architecture)
 
 ### Chapter 2
@@ -26,7 +26,7 @@ This outputs something like this:
 ```
 * Log into the vault
 * Create a new secret (via the UI). For example:
-![creating-new-secret](creating-new-secret.png)
+![creating-new-secret](images/creating-new-secret.png)
 * Get the secret (via SSH). For example:
 ```bash
 hashicorp@kaushik:~$ vault kv get kv/department/team/mysecret
@@ -69,11 +69,11 @@ This outputs something like this:
 ### Chapter 4
 * This is where we create some ACL policies
 * Example of what an ACL policy looks like from the UI is as follows:
-![vault-acl-policies](vault-acl-policies.png)
+![vault-acl-policies](images/vault-acl-policies.png)
 
 ### Chapter 5
 * Adding the username-password as an Access method. Here is how it looks on the UI:
-![vault-auth-methods](vault-auth-methods.png)
+![vault-auth-methods](images/vault-auth-methods.png)
 * One the userpass method is added, we can create different access methods on the SSH-ed machine:
 ```bash
 vault write auth/userpass/users/bob \
@@ -136,7 +136,7 @@ This outputs the following:
 
 ### Chapter 8
 * Vault has an encryption-as-a-service secrets engine called transit. This is how it looks like"
-![vault-eaas](vault-eaas.png)
+![vault-eaas](images/vault-eaas.png)
 * This is exposed here: http://kaushik.eastus.cloudapp.azure.com:5000/
 * When you enabled Vault each new record entered into the database has it's PII send through Vault before being written to the database. This greatly reduces the risk of sensitive data being compromised.
 * Even if an attacker manages to get access to the database they will only be able to see ciphertext (which is useless without the decryption keys that are safely stored in Vault.)

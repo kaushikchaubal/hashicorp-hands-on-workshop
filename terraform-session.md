@@ -3,7 +3,7 @@
 ## Cloud operating workshop
 * Tradition datacenter (Static) to modern datacenter (Dynamic)
 * This is how it looks like:
-![Implications of the cloud operating model](cloud-operating-model.jpg)
+![Implications of the cloud operating model](images/cloud-operating-model.jpg)
 * Different Hashicorp products (which helps the multi-cloud strategy)
     - Terraform (Infrastructure as code)
     - Vault (Secrets management)
