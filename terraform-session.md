@@ -185,6 +185,11 @@ terraform fmt
 4. Used the terraform taint command
 5. Rebuilt our web server with a new provisioning step
 
+### Dealing with config, state and reality
+* This picture shows the actions that Terraform takes for these different scenarios:
+![terraform-actions](terraform-actions.jpg)
+
+
 ### Other resources
 * HashiCorp Learning Portal: https://learn.hashicorp.com/terraform/
 * Microsoft Terraform Quickstarts: https://docs.microsoft.com/en-us/azure/terraform/
