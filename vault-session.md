@@ -87,7 +87,7 @@ vault write auth/userpass/users/sally \
 
 ### Chapter 7
 * This covers dynamic secrets
-* We first run the following script (Full script is available here: [database_setup.sh](database_setup.sh))
+* We first run the following script (Full script is available here: [database_setup.sh](src/database_setup.sh))
 ```bash
 ./database_setup.sh
 ```
@@ -106,7 +106,7 @@ password           A1a-fIjjcw0hcXwOPdQT
 username           v-token-workshop-a-MFVO0aWd8pp4j
 ```
 * Using the newly created credentials to log onto the MySQL database: The script gets new credentials from Vault, logs me onto the database server, then run a `show databases;` command and exit:
-* Full script is available here: [mysql_login.sh](mysql_login.sh)
+* Full script is available here: [mysql_login.sh](src/mysql_login.sh)
 ```bash
 ./mysql_login.sh
 ```
@@ -122,7 +122,7 @@ This outputs the following:
 ### Chapter 8
 * Vault has an encryption-as-a-service secrets engine called transit. This is how it looks like"
 ![vault-eaas](images/vault-eaas.png)
-* Run the script to setup transit (Full script is available here: [transit_setup.sh](transit_setup.sh))
+* Run the script to setup transit (Full script is available here: [transit_setup.sh](src/transit_setup.sh))
 * This is exposed here: http://kaushik.eastus.cloudapp.azure.com:5000/
 * When you enabled Vault each new record entered into the database has it's PII send through Vault before being written to the database. This greatly reduces the risk of sensitive data being compromised.
 * Even if an attacker manages to get access to the database they will only be able to see ciphertext (which is useless without the decryption keys that are safely stored in Vault.)
