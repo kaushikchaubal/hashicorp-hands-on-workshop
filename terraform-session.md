@@ -20,6 +20,7 @@
 * Starting point: https://hashicorp.github.io/workshops/
 * Slides: https://hashicorp.github.io/workshops/azure/terraform/#1 
 * Here are some of the 'as-a-service' options look like:
+
     | Product | Style |
     | --- | --- |
     | AWS | IaaS |
