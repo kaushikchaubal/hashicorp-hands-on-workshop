@@ -168,6 +168,28 @@ resource "azurerm_subnet" "subnet" {
 ```
 5. Seeing the terraform graph visually: https://github.com/28mm/blast-radius
 
+### Chapter 4:
+1. Understand main.tf, variables.tf and outputs.tf
+2. Enabled some outputs in our code
+3. Refactor our main.tf into smaller parts
+4. Learn the terraform fmt command
+```bash
+terraform fmt
+```
+
+### Chapter 5
+1. Learn about Terraform Provisioners
+2. Explore the file and remote-exec provisioners
+3. Learn the terraform fmt command
+4. Used the terraform taint command
+5. Rebuilt our web server with a new provisioning step
+
+### Other resources
+* HashiCorp Learning Portal: https://learn.hashicorp.com/terraform/
+* Microsoft Terraform Quickstarts: https://docs.microsoft.com/en-us/azure/terraform/
+* Terraform with Azure Cloudshell: https://docs.microsoft.com/en-us/azure/terraform/terraform-cloud-shell
+* Terraform Azurerm Provider Documentation: https://www.terraform.io/docs/providers/azurerm/
+* Link to the Slide Deck: https://bit.ly/hashiazure
 
 ## Notes / Open-questions:
 * Putting a load balancer in front of the micro-services - not a good idea! **Why?**
