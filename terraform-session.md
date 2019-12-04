@@ -88,7 +88,8 @@ git clone https://github.com/hashicorp/workshops
 cd workshops/azure
 code -r .
 ```
-5. Check the terraform version
+5. The main logic is here: [main.tf](main.tf)
+6. Check the terraform version
 ```bash
  terraform --version
 ```
