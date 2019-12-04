@@ -187,7 +187,7 @@ terraform fmt
 
 ### Dealing with config, state and reality
 * This picture shows the actions that Terraform takes for these different scenarios:
-![terraform-actions](terraform-actions.jpg)
+![terraform-actions](terraform-actions.png)
 
 
 ### Other resources
