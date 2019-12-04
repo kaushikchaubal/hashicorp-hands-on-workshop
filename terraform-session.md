@@ -114,7 +114,11 @@ This will give an ouput similar to this:
 ```
 
 3. Learn about variables - using the terraform.tfvars file (in conjuctinon with variables.tf)
-4. Set our location and prefix
+4. Set our location and prefix - This will look like this:
+```
+prefix = "kaushik"
+location = "uksouth"
+```
 
 
 
