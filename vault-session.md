@@ -65,3 +65,8 @@ This outputs something like this:
   }
 }
 ```
+
+### Chapter 4
+* This is where we create some ACL policies
+* Example of what an ACL policy looks like from the UI is as follows:
+![vault-acl-policies](vault-acl-policies.png)
