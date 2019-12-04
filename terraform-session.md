@@ -157,8 +157,16 @@ resource "azurerm_virtual_network" "vnet" {
   resource_group_name = "${azurerm_resource_group.hashitraining.name}"
 }
 ``` 
+5. Add a subnet
+```bash
+resource "azurerm_subnet" "subnet" {
+  name                 = "${var.prefix}-subnet"
+  virtual_network_name = "${azurerm_virtual_network.vnet.name}"
+  resource_group_name  = "${azurerm_resource_group.hashitraining.name}"
+  address_prefix       = "${var.subnet_prefix}"
+}
+```
 5. Seeing the terraform graph visually: https://github.com/28mm/blast-radius
-
 
 
 ## Notes / Open-questions:
