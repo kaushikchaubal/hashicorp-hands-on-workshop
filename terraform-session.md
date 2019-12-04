@@ -10,9 +10,9 @@
     - Consul (Service discovery)
     - Nomad (Deployment tooling)
 * This is how the different products sit together:
-![hashicorp-products](hashicorp-products.jpg)
+![hashicorp-products](images/hashicorp-products.jpg)
 * If done correctly, this is how the orgnisation can/shall look like:
-![multi-layer-impact](multi-layer-impact.jpg)
+![multi-layer-impact](images/multi-layer-impact.jpg)
 
 ## Hands-on session
 
@@ -187,7 +187,7 @@ terraform fmt
 
 ### Dealing with config, state and reality
 * This picture shows the actions that Terraform takes for these different scenarios:
-![terraform-actions](terraform-actions.png)
+![terraform-actions](images/terraform-actions.png)
 
 
 ### Other resources
