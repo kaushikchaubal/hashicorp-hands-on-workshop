@@ -93,6 +93,28 @@ code -r .
  terraform --version
 ```
 
+### Chapter 2:
+1. Use the terraform init command
+```bash
+terraform init
+```
+2. Run the terraform plan command
+```bash
+terraform plan
+```
+This will give an ouput similar to this:
+```bash
+ # azurerm_resource_group.hashitraining will be created
+  + resource "azurerm_resource_group" "hashitraining" {
+      + id       = (known after apply)
+      + location = "centralus"
+      + name     = "kaushik-workshop"
+      + tags     = (known after apply)
+    }
+```
+
+3. Learn about variables - using the terraform.tfvars file (in conjuctinon with variables.tf)
+4. Set our location and prefix
 
 
 
