@@ -70,3 +70,17 @@ This outputs something like this:
 * This is where we create some ACL policies
 * Example of what an ACL policy looks like from the UI is as follows:
 ![vault-acl-policies](vault-acl-policies.png)
+
+### Chapter 5
+* Adding the username-password as an Access method. Here is how it looks on the UI:
+![vault-auth-methods](vault-auth-methods.png)
+* One the userpass method is added, we can create different access methods on the SSH-ed machine:
+```bash
+vault write auth/userpass/users/bob \
+    password=foo \
+    policies=secret
+vault write auth/userpass/users/sally \
+    password=foo \
+    policies=lob_a
+```
+* This means that Bob can read, list and create data under the secret/* path because his policy allows him to do so. Vault comes with a key/value engine mounted at secret/ by default. When Sally logs on she can't even see the secret/ path because she does not have list permissions
