@@ -135,7 +135,8 @@ This outputs the following:
 ```
 
 ### Chapter 8
-* Vault has an encryption-as-a-service secrets engine called transit
+* Vault has an encryption-as-a-service secrets engine called transit. This is how it looks like"
+![vault-eaas](vault-eaas.png)
 * This is exposed here: http://kaushik.eastus.cloudapp.azure.com:5000/
 * When you enabled Vault each new record entered into the database has it's PII send through Vault before being written to the database. This greatly reduces the risk of sensitive data being compromised.
 * Even if an attacker manages to get access to the database they will only be able to see ciphertext (which is useless without the decryption keys that are safely stored in Vault.)
