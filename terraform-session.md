@@ -89,7 +89,7 @@ git clone https://github.com/hashicorp/workshops
 cd workshops/azure
 code -r .
 ```
-5. The main logic is here: [main.tf](main.tf)
+5. The main logic is here: [main.tf](src/main.tf)
 6. Check the terraform version
 ```bash
  terraform --version
