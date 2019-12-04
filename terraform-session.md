@@ -121,6 +121,44 @@ prefix = "kaushik"
 location = "uksouth"
 ```
 
+### Chapter 3:
+1. Terraform apply -auto-approve
+```bash
+terraform apply
+```
+This will give an output like:
+```bash
+azurerm_resource_group.hashitraining: Creating...
+azurerm_resource_group.hashitraining: Creation complete after 10s [id=/subscriptions/14692f20-9428-451b-8298-102ed4e39c2a/resourceGroups/kaushik-workshop]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+```
+2. Terraform destroy - This will remove all resources
+```
+terraform destroy
+```
+3. Adding tags - This will add a tag
+```bash
+resource "azurerm_resource_group" "hashitraining" {
+  name     = "${var.prefix}-workshop"
+  location = "${var.location}"
+
+  tags = {
+    environment = "Production"
+  }
+}
+```
+4. Add a Virtual Network
+```bash
+resource "azurerm_virtual_network" "vnet" {
+  name                = "${var.prefix}-vnet"
+  location            = "${azurerm_resource_group.hashitraining.location}"
+  address_space       = ["${var.address_space}"]
+  resource_group_name = "${azurerm_resource_group.hashitraining.name}"
+}
+``` 
+5. Seeing the terraform graph visually: https://github.com/28mm/blast-radius
+
 
 
 ## Notes / Open-questions:
